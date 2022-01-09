@@ -1,0 +1,5 @@
+Token:OTI5Mjg3OTA4NDk2NjU0MzY3.YdlIzg.y0TDtXI3W4xmftEL0npcLX8DAA8
+
+
+
+Boturl:https://discord.com/api/oauth2/authorize?client_id=929287908496654367&permissions=534723946560&scope=bot
