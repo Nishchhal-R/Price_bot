@@ -3,8 +3,9 @@ import requests
 import discord
 import os
 client = discord.Client()
+from dotenv import load_dotenv
 
-
+load_dotenv()
 
 def price_checker(currency):
     currency=currency.upper()
