@@ -1,12 +1,14 @@
 from  alpha_vantage import *
 import requests
 import discord
-
+import os
 client = discord.Client()
+
+
 
 def price_checker(currency):
     currency=currency.upper()
-    url = 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency='+currency+'&to_currency=USD&apikey=D5KJ9ZZLZBQSH30Y'
+    url = 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency='+currency+'&to_currency=USD&apikey='+os.getenv("API_key")
     r = requests.get(url)
     data = r.json()
     res=data['Realtime Currency Exchange Rate']['5. Exchange Rate']
@@ -15,7 +17,7 @@ def price_checker(currency):
 def message_former(currency):
     price_checker(currency)
     
-    str1=currency+" price in usd:"+str(price_checker('btc'))
+    str1=currency+" price in usd:  "+str(price_checker(currency))
     
     return str1
     
@@ -49,4 +51,4 @@ async def on_message(message):
 
         await message.channel.send(message_former('eth'))
     
-client.run('OTI5Mjg3OTA4NDk2NjU0MzY3.YdlIzg.y0TDtXI3W4xmftEL0npcLX8DAA8')
+client.run(os.getenv('TOKEN'))
